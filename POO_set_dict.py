@@ -45,10 +45,11 @@ class Sistema:
     def mostrar_permisos_usuario (self, email):
         if email in self.usuario:
             usuario = self.usuario[email]
-            print(f"Email: {email}")
-            for rol in usuario.roles:  # Aquí, `usuario.roles` es un set de objetos `Rol`.
+            for rol in usuario.roles: 
+                print("--------------------------------")
                 print(f"Nombre del rol: {rol.nombre_rol}")
                 for permiso in rol.permiso:
+                    print("............................")
                     print(f"Permisos : {permiso} ")
         else:
             print(f"No se ha encontrado al un usuario con el corre {email}")
