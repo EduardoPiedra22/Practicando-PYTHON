@@ -1,5 +1,10 @@
 import json
-
+"""
+Ejercicio: Gestión de Usuarios y Permisos
+Objetivo: Crear un sistema de gestión de usuarios para una aplicación. 
+El sistema permitirá agregar usuarios, asignarles roles, concederles permisos específicos, y
+guardar esta información en un archivo para persistir los datos.
+"""
 class Usuario: 
     def __init__(self, nombre, email):
         self.nombre = nombre
