@@ -73,7 +73,8 @@ class Sistema:
         with open(archivo, "w") as f:
             json.dump({email: usuario.to_dict() for email, usuario in self.usuario.items()}, f, indent=4)
         print(f"Datos guardados exitosamente en {archivo}.")
-                    
+        
+    
 def menu ():
     print("--- Sistema de Gestión de Usuarios ---")
     print("1. Agregar nuevo usuario")
@@ -81,8 +82,7 @@ def menu ():
     print("3. Asignar rol a usuario")
     print("4. Mostrar permisos de un usuario")
     print("5. Guardar datos en archivo")
-    print("6. Cargar datos desde archivo")
-    print("7. Salir")
+    print("6. Salir")
 
 mi_sistema = Sistema()
 if __name__ == "__main__":
@@ -112,4 +112,6 @@ if __name__ == "__main__":
         elif opcion == 5:
             archivo = input("Nombre archivo : ")
             mi_sistema.guardar_en_archivos(archivo)
-        
+        else:
+            print("saliendo del programa.......")
+            break
