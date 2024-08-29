@@ -1,3 +1,5 @@
+import json
+
 class Usuario: 
     def __init__(self, nombre, email):
         self.nombre = nombre
@@ -11,7 +13,20 @@ class Usuario:
         print(f"se ha agregado el Rol {rol.nombre_rol} a tu usuario {self.nombre}")
         print("-------------------------------------")
         
-    
+    def to_dict(self):
+        return{
+            'nombre': self.nombre,
+            'email': self.email,
+            'roles': [
+                 {
+                'nombre_rol': rol.nombre_rol,
+                'permisos': list(rol.permiso)  
+            }
+            for rol in self.roles
+            ]
+                
+            
+        }
 class Rol:
     def __init__(self, nombre_rol, permiso) -> None:
         self.nombre_rol = nombre_rol
@@ -53,6 +68,11 @@ class Sistema:
                     print(f"Permisos : {permiso} ")
         else:
             print(f"No se ha encontrado al un usuario con el corre {email}")
+    
+    def guardar_en_archivos(self, archivo):
+        with open(archivo, "w") as f:
+            json.dump({email: usuario.to_dict() for email, usuario in self.usuario.items()}, f, indent=4)
+        print(f"Datos guardados exitosamente en {archivo}.")
                     
 def menu ():
     print("--- Sistema de Gestión de Usuarios ---")
@@ -89,4 +109,7 @@ if __name__ == "__main__":
         elif opcion == 4:
             email = input("Email: ")
             mi_sistema.mostrar_permisos_usuario(email)
+        elif opcion == 5:
+            archivo = input("Nombre archivo : ")
+            mi_sistema.guardar_en_archivos(archivo)
         

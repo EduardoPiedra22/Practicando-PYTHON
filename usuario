@@ -1,0 +1,29 @@
+{
+    "eduardo@gmail.com": {
+        "nombre": "eduardo",
+        "email": "eduardo@gmail.com",
+        "roles": [
+            {
+                "nombre_rol": "admin",
+                "permisos": [
+                    "eliminar_usuario",
+                    "agregar_usuario",
+                    "modificar_usuario"
+                ]
+            }
+        ]
+    },
+    "andrea@gmail.com": {
+        "nombre": "andrea",
+        "email": "andrea@gmail.com",
+        "roles": [
+            {
+                "nombre_rol": "user",
+                "permisos": [
+                    "crear_post",
+                    "editar_post_eliminar_post"
+                ]
+            }
+        ]
+    }
+}
